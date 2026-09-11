@@ -1,0 +1,426 @@
+/* 整個網頁 */
+body {
+  margin: 0;
+  padding: 30px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #f5f5f5;
+}
+
+
+/* 小狗活動的區域 */
+.stage {
+  position: relative;
+  width: 100%;
+  height: 300px;
+
+  margin-top: 30px;
+
+  background-color: #dff3ff;
+
+  border-bottom: 8px solid #7ac66d;
+
+  overflow: hidden;
+}
+
+
+/* 整隻狗 */
+.dog {
+  position: absolute;
+
+  width: 150px;
+  height: 120px;
+
+  left: 30px;
+  bottom: 20px;
+
+  z-index: 2;
+}
+
+
+/* 身體 */
+.body {
+  position: absolute;
+
+  width: 100px;
+  height: 55px;
+
+  left: 25px;
+  top: 40px;
+
+  background-color: #d9a441;
+
+  border-radius: 45% 50% 40% 45%;
+}
+
+
+/* 頭 */
+.head {
+  position: absolute;
+
+  width: 58px;
+  height: 55px;
+
+  left: 105px;
+  top: 22px;
+
+  background-color: #e0ad4f;
+
+  border-radius: 50%;
+}
+
+/* 耳朵 */
+.ear {
+  position: absolute;
+
+  width: 22px;
+  height: 38px;
+
+  left: 5px;
+  top: 10px;
+
+  background-color: #b77a2d;
+
+  border-radius: 50% 50% 60% 60%;
+
+  transform: rotate(15deg);
+  transform-origin: top center;
+}
+
+
+/* 眼睛 */
+.eye {
+  position: absolute;
+
+  width: 7px;
+  height: 7px;
+
+  right: 13px;
+  top: 16px;
+
+  background-color: black;
+
+  border-radius: 50%;
+}
+
+
+/* 鼻子 */
+.nose {
+  position: absolute;
+
+  width: 10px;
+  height: 9px;
+
+  right: -5px;
+  top: 28px;
+
+  background-color: black;
+
+  border-radius: 50%;
+}
+
+
+/* 尾巴 */
+.tail {
+  position: absolute;
+
+  width: 65px;
+  height: 25px;
+
+  left: -20px;
+  top: 38px;
+
+  background-color: #d9a441;
+
+  border-radius: 70% 20% 70% 30%;
+
+  transform-origin: right center;
+}
+.tail::after {
+  content: "";
+
+  position: absolute;
+
+  width: 55px;
+  height: 18px;
+
+  left: 3px;
+  top: 12px;
+
+  background-color: #edc36e;
+
+  border-radius: 20% 20% 80% 80%;
+
+  transform: rotate(5deg);
+}
+
+/* 四隻腳共同設定 */
+.leg {
+  position: absolute;
+
+  width: 12px;
+  height: 40px;
+
+  top: 85px;
+
+  background-color: #c98f36;
+
+  border-radius: 5px;
+
+  transform-origin: top center;
+}
+
+
+/* 每隻腳的位置 */
+
+.leg1 {
+  left: 40px;
+}
+
+.leg2 {
+  left: 60px;
+}
+
+.leg3 {
+  left: 95px;
+}
+
+.leg4 {
+  left: 115px;
+}
+
+
+/* 按鈕 */
+button {
+  margin-top: 30px;
+
+  padding: 12px 25px;
+
+  font-size: 18px;
+
+  cursor: pointer;
+}
+@keyframes wag {
+
+  from {
+    transform: rotate(-50deg);
+  }
+
+  to {
+    transform: rotate(10deg);
+  }
+
+}
+
+
+@keyframes legMove1 {
+  from {
+    transform: rotate(25deg);
+  }
+
+  to {
+    transform: rotate(-25deg);
+  }
+}
+
+
+@keyframes legMove2 {
+  from {
+    transform: rotate(-25deg);
+  }
+
+  to {
+    transform: rotate(25deg);
+  }
+}
+.dog.running .tail {
+  animation: wag 0.3s infinite alternate;
+}
+
+.dog.running .leg1,
+.dog.running .leg3 {
+  animation: legMove1 0.3s infinite alternate;
+}
+
+.dog.running .leg2,
+.dog.running .leg4 {
+  animation: legMove2 0.3s infinite alternate;
+}
+.dog.running .body {
+  animation: bodyBounce 0.3s infinite alternate;
+}
+
+.dog.running .head {
+  animation: headBounce 0.3s infinite alternate;
+}
+@keyframes bodyBounce {
+
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-5px);
+  }
+
+}
+
+
+@keyframes headBounce {
+
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-4px);
+  }
+
+}
+/* 黃金獵犬胸前的淺色毛 */
+.chest {
+  position: absolute;
+
+  width: 25px;
+  height: 42px;
+
+  right: 3px;
+  top: 10px;
+
+  background-color: #f2cf85;
+
+  border-radius: 50%;
+}
+
+
+/* 嘴巴 */
+.mouth {
+  position: absolute;
+
+  width: 20px;
+  height: 12px;
+
+  right: -3px;
+  top: 33px;
+
+  border-bottom: 3px solid #6b4423;
+
+  border-radius: 50%;
+}
+
+
+/* 舌頭 */
+.tongue {
+  position: absolute;
+
+  width: 10px;
+  height: 15px;
+
+  right: 3px;
+  top: 43px;
+
+  background-color: #e98282;
+
+  border-radius: 0 0 8px 8px;
+
+  transform-origin: top center;
+}
+.dog.running .ear {
+  animation: earFlap 0.25s infinite alternate;
+}
+@keyframes earFlap {
+
+  from {
+    transform: rotate(10deg);
+  }
+
+  to {
+    transform: rotate(35deg);
+  }
+
+}
+.dog.running .tongue {
+  animation: tongueMove 0.2s infinite alternate;
+}
+@keyframes tongueMove {
+
+  from {
+    transform: rotate(-15deg);
+  }
+
+  to {
+    transform: rotate(15deg);
+  }
+
+}
+/* 地面 */
+.ground {
+  position: absolute;
+
+  left: 0;
+  bottom: 8px;
+
+  width: 100%;
+  height: 50px;
+
+  z-index: 1;
+}
+
+
+/* 小草 */
+.grass {
+  position: absolute;
+
+  bottom: 0;
+
+  width: 10px;
+  height: 30px;
+
+  background-color: green;
+
+  border-radius: 50% 50% 0 0;
+}
+
+@keyframes groundMove {
+
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+
+}
+.grass:nth-child(1) {
+  left: 10%;
+}
+
+.grass:nth-child(2) {
+  left: 30%;
+}
+
+.grass:nth-child(3) {
+  left: 50%;
+}
+
+.grass:nth-child(4) {
+  left: 70%;
+}
+
+.grass:nth-child(5) {
+  left: 90%;
+}
+.stage.running .grass {
+  animation: grassMove 1.5s linear infinite;
+}
+
+@keyframes grassMove {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-300px);
+  }
+}
